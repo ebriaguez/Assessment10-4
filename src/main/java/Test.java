@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Test {
     public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class Test {
 
         FlightApp printOutMethods = new FlightApp();
         IPayable[] payableThings = {planeTicket, busTicket, crewMember1, crewMember2, crewMember3};
-//        info.printAmountForEachThingThatIsPayable(payableThings);
+        printOutMethods.printAmountForEachThingThatIsPayable(payableThings);
 
         ArrayList<FlightCrewJob> addNewJobs = new ArrayList<>();
         addNewJobs.add(flightCrewJob3);
@@ -36,5 +37,7 @@ public class Test {
         printOutMethods.printEachFlightCrewJob(addNewJobs);
 
         printOutMethods.sortAndPrintCrewMembersByJob(addNewJobs);
+
+        printOutMethods.printAllJobsExceptThisCrewMemberJob(addNewJobs, crewMember1);
     }
 }

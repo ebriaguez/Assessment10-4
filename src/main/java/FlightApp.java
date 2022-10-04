@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 public class FlightApp {
     public void printEachFlightCrewJob(ArrayList<FlightCrewJob> jobs){
@@ -9,16 +11,24 @@ public class FlightApp {
     }
 
     public void printAmountForEachThingThatIsPayable(IPayable[] payable){
-        for(int x = 0; x < payable.length; x++){
-            System.out.println(payable[x]);
+        for(IPayable placeHolder : payable){
+            System.out.println(placeHolder);
         }
-
     }
 
     public void sortAndPrintCrewMembersByJob(ArrayList<FlightCrewJob> sort){
+        Collections.sort(sort, new sortingComparator());
         for(FlightCrewJob placeHolder : sort){
+            System.out.println(placeHolder);
         }
     }
 
-    public void printAllJobsExceptThisCrewMemberJob(ArrayList<FlightCrewJob> p, CrewMember s){}
+    public void printAllJobsExceptThisCrewMemberJob(ArrayList<FlightCrewJob> job, CrewMember member){
+        for(FlightCrewJob placeHolder : job){
+            if(job.contains(FlightCrewJob.PILOT)){
+                job.remove(member);
+            }
+            System.out.println(placeHolder);
+        }
+    }
 }
